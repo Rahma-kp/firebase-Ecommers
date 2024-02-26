@@ -1,56 +1,51 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class ProductModel {
-  String? user;
-  String? id;
+  int? id;
   String? title;
-  String? brand;
+  int? price;
   String? description;
   String? category;
-  List<String>? wishList;
-  DateTime? timeStamp;
   String? image;
-  int? price;
-  ProductModel(
-      {this.category,
-      this.user,
-      this.id,
-      this.image,
-      this.price,
-      this.description,
-      this.brand,
-      this.timeStamp,
-      this.title,
-      this.wishList});
-  factory ProductModel.fromJson(String id, Map<String, dynamic> json) {
-    return ProductModel(
-      user: json['user'],
-      id: id,
-      timeStamp: json['timeStamp'] != null
-          ? (json['timeStamp'] as Timestamp).toDate()
-          : null,
-      category: json['category'],
-      image: json['image'],
-      price: json['price'],
-      brand: json['brand'],
-      description: json['description'],
-      title: json['title'],
-      wishList: List<String>.from(json["wishList"] ?? []),
-    );
+  String? rating;
+
+  ProductModel({
+    this.id,
+    this.title,
+    this.price,
+    this.description,
+    this.category,
+    this.image,
+    this.rating,
+  });
+
+  ProductModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    price = json['price'];
+    description = json['description'];
+    category = json['category'];
+    image = json['image'];
+    rating = json['rating'];
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'category': category,
-      'user': user,
-      'image': image,
-      'price': price,
-      'brand': brand,
-      'description': description,
-      'timeStamp': timeStamp,
-      'title': title,
-      'wishList': wishList,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['price'] = this.price;
+    data['description'] = this.description;
+    data['category'] = this.category;
+    data['image'] = this.image;
+    data['rating'] = this.rating;
+    return data;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductModel &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
 }

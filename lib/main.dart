@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(
-          primaryColor: const Color.fromARGB(255, 37, 157, 192),
+          primaryColor: Color.fromARGB(182, 217, 101, 81),
           textTheme: TextTheme(
             titleLarge: GoogleFonts.montserrat(
               color: Colors.white,
@@ -51,13 +51,13 @@ class MyApp extends StatelessWidget {
             ),
           ),
           appBarTheme: const AppBarTheme(
-            backgroundColor: Color.fromARGB(255, 37, 157, 192),
+            backgroundColor: Color.fromARGB(182, 217, 101, 81),
             foregroundColor: Colors.white,
             elevation: 0,
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 37, 157, 192),
+              backgroundColor: Color.fromARGB(182, 217, 101, 81),
             ),
           ),
         ),
