@@ -13,7 +13,7 @@ class ShimmerLoader extends StatelessWidget {
           const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
-          baseColor: Color.fromARGB(255, 73, 73, 73),
+          baseColor: Color.fromARGB(255, 185, 183, 183),
           highlightColor: Colors.white,
           child: Padding(
             padding: const EdgeInsets.all(8.0),

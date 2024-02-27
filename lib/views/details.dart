@@ -1,8 +1,9 @@
-import 'package:firebase_login/helpers/helpers.dart';
-import 'package:firebase_login/model/product_model.dart';
+
+import 'package:ecommersapp/helpers/helpers.dart';
+import 'package:ecommersapp/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+
 
 
 class DetailsPage extends StatelessWidget {
@@ -52,7 +53,7 @@ class DetailsPage extends StatelessWidget {
                         },
                         child: CircleAvatar(
                           backgroundColor: Colors.white.withOpacity(0.2),
-                          child: Icon(Iconsax.arrow_left,color: Colors.white.withOpacity(0.5),),
+                          child: Icon(Icons.arrow_left,color: Colors.white.withOpacity(0.5),),
                         ),
                       )),
                       Positioned(

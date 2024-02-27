@@ -1,13 +1,15 @@
-import 'package:firebase_login/controller/category_provider.dart';
-import 'package:firebase_login/controller/wishlist_provider.dart';
-import 'package:firebase_login/model/product_model.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/details.dart';
+
+import 'package:ecommersapp/controller/category_provider.dart';
+import 'package:ecommersapp/controller/wishlist_provider.dart';
+import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/views/details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class CategoryListBuilder extends StatelessWidget {
   final CategoryProvider catPro;
    CategoryListBuilder({

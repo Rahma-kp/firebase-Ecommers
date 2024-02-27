@@ -1,6 +1,6 @@
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/home.dart';
-import 'package:firebase_login/widgets/custom_textfield.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/views/home_screen.dart';
+import 'package:ecommersapp/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';

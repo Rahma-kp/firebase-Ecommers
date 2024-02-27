@@ -1,7 +1,8 @@
-import 'package:firebase_login/services/auth_service.dart';
+
+import 'package:ecommersapp/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+
 
 
 class drawerPage extends StatelessWidget {
@@ -12,13 +13,13 @@ class drawerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return  Drawer(
-      backgroundColor: Color.fromARGB(255, 24, 30, 41),
+      backgroundColor: Colors.white,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             Container(
               height: 200,
-              color: Color.fromARGB(255, 24, 29, 41),
+              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.only(top: 60,left: 20),
                 child: Column(
@@ -26,29 +27,29 @@ class drawerPage extends StatelessWidget {
                   children: [
                     Text(
                       auth.auth.currentUser!.displayName??'',
-                      style: GoogleFonts.montserrat(color: Colors.white,
-                        fontSize: 20,)
+                      style: GoogleFonts.montserrat(color: Colors.black,
+                        fontSize: 40,)
                     ),
                     Text(
                       auth.auth.currentUser!.email??'',
-                      style: GoogleFonts.montserrat(color: Colors.white,
-                        fontSize: 12,)
+                      style: GoogleFonts.montserrat(color: Colors.black,
+                        fontSize: 20,)
                     ),
                   ],
                 ),
               ),
             ),
             ListTile(
-              title: Text('Log out',style: GoogleFonts.montserrat(color: Colors.white,
-                        fontSize: 12,),),
-              trailing: Icon(Iconsax.logout),
+              title: Text('Log out',style: GoogleFonts.montserrat(color: Colors.black,
+                        fontSize: 20,),),
+              trailing: Icon(Icons.logout),
               onTap: () {
                showDialog(context: context, 
                builder: (context) {
                  return AlertDialog(
-                  title:Text('Log out..?',style: GoogleFonts.montserrat(color: Colors.white,
+                  title:Text('Log out..?',style: GoogleFonts.montserrat(color: Colors.black,
                         fontSize: 18,),), 
-                  backgroundColor:  Color.fromARGB(255, 24, 30, 41),
+                  backgroundColor:  Colors.white,
                  actions: [
                     TextButton(onPressed: () {
                     AuthService().signOut();

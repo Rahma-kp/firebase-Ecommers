@@ -1,8 +1,9 @@
-import 'package:firebase_login/controller/wishlist_provider.dart';
-import 'package:flutter/material.dart';
 
+import 'package:ecommersapp/controller/wishlist_provider.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
+
 
 class ShimmerLoaderList extends StatelessWidget {
   const ShimmerLoaderList({

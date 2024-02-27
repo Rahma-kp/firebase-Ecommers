@@ -1,8 +1,7 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommersapp/model/usermodel.dart';
+import 'package:ecommersapp/views/authentication/otp_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_login/model/usermodel.dart';
-import 'package:firebase_login/views/otp_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 

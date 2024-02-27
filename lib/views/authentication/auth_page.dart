@@ -1,5 +1,6 @@
-import 'package:firebase_login/views/login.dart';
-import 'package:firebase_login/views/signup.dart';
+
+import 'package:ecommersapp/views/authentication/login.dart';
+import 'package:ecommersapp/views/authentication/signup.dart';
 import 'package:flutter/material.dart';
 
 

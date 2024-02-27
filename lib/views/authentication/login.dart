@@ -1,8 +1,8 @@
 
-import 'package:firebase_login/helpers/custom_container.dart';
-import 'package:firebase_login/helpers/helpers.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/phoneauth.dart';
+import 'package:ecommersapp/helpers/custom_container.dart';
+import 'package:ecommersapp/helpers/helpers.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/views/authentication/phoneauth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     var width=MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromARGB(255, 24, 30, 41),
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           ClipPath(
@@ -50,10 +50,10 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   spacingHeight(130),
-                  const Center(child: Icon(Iconsax.security_safe,color: Colors.white,size: 60,)),
+                  const Center(child: Icon(Iconsax.security_safe,color: Colors.black,size: 60,)),
                   spacingHeight(10),
-                  Text('Welcome',style: GoogleFonts.ubuntu(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w500),),
-                  Text('Please enter your e-mail and password to Login',style: GoogleFonts.montserrat(color: const Color.fromARGB(255, 190, 189, 189),fontSize: 12),),
+                  Text('Welcome',style: GoogleFonts.ubuntu(color: Colors.black,fontSize: 30,fontWeight: FontWeight.w500),),
+                  Text('Please enter your e-mail and password to Login',style: GoogleFonts.montserrat(color: Color.fromARGB(255, 35, 35, 35),fontSize: 12),),
                   spacingHeight(20),
                   textFormField(controller: emailController,text: 'Email'),
                   spacingHeight(30),
@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                   spacingHeight(15),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Forgot password?',style: GoogleFonts.montserrat(color: const Color.fromARGB(255, 190, 189, 189),fontSize: 12),)),
+                    child: Text('Forgot password?',style: GoogleFonts.montserrat(color: Color.fromARGB(255, 35, 35, 35),fontSize: 12),)),
                   spacingHeight(15),
                   InkWell(
                     child: Container(
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text('Sign Up',style: GoogleFonts.workSans(color: Colors.blue,fontSize: 13,fontWeight: FontWeight.w500),)),
                     ],
                   ),
-                  Text('Or Sign in with',style: GoogleFonts.workSans(color: Colors.grey,fontSize: 10,fontWeight: FontWeight.w500),),
+                  Text('Or Sign in with',style: GoogleFonts.workSans(color: Color.fromARGB(255, 167, 166, 166),fontSize: 10,fontWeight: FontWeight.w500),),
                   spacingHeight(10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
-                            child: Container(child: Image.asset('assets/ggogle.png')),
+                            child: Image.asset('assets/icons/google.png',),
                           ),
                         ),
                       ),
@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(19.0),
-                            child: Container(child: Image.asset('assets/github.png',height: height*0.04,)),
+                            child: Image.asset('assets/icons/github.png',height: height*0.04,),
                           ),
                         ),
                         onTap: () {
@@ -132,7 +132,10 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.white.withOpacity(0.4),
                             borderRadius: BorderRadius.circular(20)
                           ),
-                          child: Icon(Iconsax.mobile,color: Colors.white,size: 35,),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Image.asset('assets/icons/phone.png',),
+                          ),
                         ),
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PhoneAuthPage()));

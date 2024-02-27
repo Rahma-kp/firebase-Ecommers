@@ -1,6 +1,7 @@
-import 'package:firebase_login/helpers/helpers.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/wishlist.dart';
+
+import 'package:ecommersapp/helpers/helpers.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/views/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

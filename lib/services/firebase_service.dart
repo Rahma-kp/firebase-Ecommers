@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_login/model/category_model.dart';
-import 'package:firebase_login/model/product_model.dart';
+import 'package:ecommersapp/model/category_model.dart';
+import 'package:ecommersapp/model/product_model.dart';
+
 
 
 class DatabaseService {
@@ -19,7 +20,7 @@ class DatabaseService1 {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   late final CollectionReference<ProductModel> furniteref;
   DatabaseService1() {
-    furniteref = firestore.collection("furniture").withConverter<ProductModel>(
+    furniteref = firestore.collection("collections").withConverter<ProductModel>(
           fromFirestore: (snapshot, snapshotOptions) =>
               ProductModel.fromJson(snapshot.data()!),
           toFirestore: (data, setOptions) => data.toJson(),

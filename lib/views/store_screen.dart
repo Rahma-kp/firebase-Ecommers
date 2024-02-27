@@ -1,5 +1,5 @@
-import 'package:firebase_login/widgets/furniture_grid.dart';
-import 'package:firebase_login/widgets/shoe_grid.dart';
+import 'package:ecommersapp/widgets/furniture_grid.dart';
+import 'package:ecommersapp/widgets/shoe_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,9 +10,9 @@ class StorePage extends StatelessWidget {
   @override
    Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 24, 30, 41),
+      backgroundColor: Color.fromARGB(255, 194, 195, 196),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 24, 30, 41),
+        backgroundColor:  Color.fromARGB(182, 217, 101, 81),
         title: Text('Your Store',style: GoogleFonts.montserrat(
                           fontWeight: FontWeight.w500,
                           color: Colors.white)),

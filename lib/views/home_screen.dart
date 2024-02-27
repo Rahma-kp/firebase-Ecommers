@@ -1,21 +1,20 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:firebase_login/controller/homepage_provider.dart';
-import 'package:firebase_login/helpers/helpers.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/drawer.dart';
-import 'package:firebase_login/widgets/category_list.dart';
-import 'package:firebase_login/widgets/furniture_grid.dart';
-import 'package:firebase_login/widgets/shoe_grid.dart';
+import 'package:ecommersapp/controller/homepage_provider.dart';
+import 'package:ecommersapp/helpers/helpers.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/widgets/drawer.dart';
+import 'package:ecommersapp/widgets/category_list.dart';
+import 'package:ecommersapp/widgets/furniture_grid.dart';
+import 'package:ecommersapp/widgets/shoe_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
-
 
 class _HomePageState extends State<HomePage> {
   AuthService auth = AuthService();
@@ -23,25 +22,38 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    Provider.of<HomeProvider>(context,listen: false).getCurrentUser();
+    Provider.of<HomeProvider>(context, listen: false).getCurrentUser();
   }
 
   final List<String> images = [
-    'assets/4021475.jpg',
-    'assets/5565175.jpg',
-    'assets/add.1.jpg',
-    'assets/add.2.jpg',
-    'assets/add.3.jpg',
-    'assets/add.4.jpg',
-    'assets/add.5.jpg',
+    "assets/images/offer 1.jpg",
+    "assets/images/offer 2.jpg",
+    "assets/images/offer 4.jpeg",
+    "assets/images/offer3.jpeg",
+    "assets/images/offer 5.jpeg",
+    "assets/images/offfer 6.jpeg",
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 24, 30, 41),
+      backgroundColor: Color.fromARGB(255, 194, 195, 196),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 24, 30, 41),
+        backgroundColor: Color.fromARGB(182, 217, 101, 81),
+        title: Row(
+          children: [
+            Text('Hello..',
+                style: GoogleFonts.montserrat(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white)),
+            Text(Provider.of<HomeProvider>(context).currentusername,
+                style: GoogleFonts.montserrat(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white)),
+          ],
+        ),
       ),
       endDrawer: drawerPage(),
       body: CustomScrollView(
@@ -53,30 +65,11 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Row(
                     children: [
-                      Text('Hello..',
-                          style: GoogleFonts.montserrat(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white)),
-                      Image.asset(
-                        'assets/handwave.png',
-                        height: 20,
-                      ),
-                      spacingWidth(10),
-                      Text(Provider.of<HomeProvider>(context).currentusername,
-                          style: GoogleFonts.montserrat(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white)),
-                    ],
-                  ),
-                  Row(
-                    children: [
                       Text('Start',
                           style: GoogleFonts.montserrat(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
-                              color: Colors.white)),
+                              color: const Color.fromARGB(255, 0, 0, 0))),
                       Icon(
                         Icons.arrow_right,
                         color: Colors.green,
@@ -86,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                           style: GoogleFonts.montserrat(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
-                              color: Colors.amber)),
+                              color: Colors.black)),
                     ],
                   ),
                 ],
@@ -143,38 +136,36 @@ class _HomePageState extends State<HomePage> {
                           style: GoogleFonts.montserrat(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Colors.white)),
+                              color: Colors.black)),
                       spacingWidth(10),
                       Text('Products',
                           style: GoogleFonts.montserrat(
                               fontSize: 17,
                               fontWeight: FontWeight.w500,
-                              color: Colors.amber)),
+                              color: Colors.black)),
                     ],
                   ),
                   Text('Sports',
                       style: GoogleFonts.montserrat(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white)),
+                          color: Colors.black)),
                 ],
               ),
             ),
           ),
           ShoeItems(),
-          
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
-              child: Text('Furniture',
-                      style: GoogleFonts.montserrat(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white)),
+              child: Text('New Collections',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black)),
             ),
           ),
-          
-           FurnitureItems(),
+          FurnitureItems(),
         ],
       ),
     );

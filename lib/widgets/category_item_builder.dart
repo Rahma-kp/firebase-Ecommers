@@ -1,8 +1,9 @@
-import 'package:firebase_login/controller/category_provider.dart';
-import 'package:firebase_login/model/category_model.dart';
-import 'package:firebase_login/model/product_model.dart';
-import 'package:firebase_login/views/category_listbuilder.dart';
-import 'package:firebase_login/widgets/simmer_grid.dart';
+
+import 'package:ecommersapp/controller/category_provider.dart';
+import 'package:ecommersapp/model/category_model.dart';
+import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/views/category_listbuilder.dart';
+import 'package:ecommersapp/widgets/simmer_grid.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';

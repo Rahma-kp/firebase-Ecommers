@@ -32,8 +32,8 @@ LinearGradient loginGradient() {
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
       colors: [
-        Colors.amber,
-        Color.fromARGB(255, 250, 214, 107),
+        Colors.black,
+        Colors.black,
       ]);
 }
 

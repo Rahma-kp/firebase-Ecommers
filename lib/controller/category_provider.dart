@@ -1,5 +1,5 @@
-import 'package:firebase_login/model/product_model.dart';
-import 'package:firebase_login/services/firebase_service.dart';
+import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/services/firebase_service.dart';
 import 'package:flutter/material.dart';
 
 

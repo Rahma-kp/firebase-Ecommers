@@ -1,9 +1,10 @@
-import 'package:firebase_login/controller/homepage_provider.dart';
-import 'package:firebase_login/controller/wishlist_provider.dart';
-import 'package:firebase_login/model/product_model.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/details.dart';
-import 'package:firebase_login/widgets/simmer_grid.dart';
+
+import 'package:ecommersapp/controller/homepage_provider.dart';
+import 'package:ecommersapp/controller/wishlist_provider.dart';
+import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/views/details.dart';
+import 'package:ecommersapp/widgets/simmer_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -61,7 +62,7 @@ class ShoeItems extends StatelessWidget {
                                   blurRadius: 2.5,
                                   color: Colors.black.withOpacity(0.2)),
                             ],
-                            color: Color.fromARGB(255, 29, 35, 46),
+                            color: Color.fromARGB(255, 247, 245, 245),
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
                                 image: NetworkImage(product.image!, scale: 7))),
@@ -73,7 +74,7 @@ class ShoeItems extends StatelessWidget {
                                 child: Text(
                                   product.category!,
                                   style: GoogleFonts.montserrat(
-                                      color: Colors.white, fontSize: 10),
+                                      color: Colors.black, fontSize: 10),
                                 )),
                             Positioned(
                                 right: 10,
@@ -100,7 +101,7 @@ class ShoeItems extends StatelessWidget {
                                 children: [
                                   Text(
                                     product.title ?? 'No title',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.black),
                                   ),
                                   Text(
                                     '${product.price}',
@@ -122,7 +123,7 @@ class ShoeItems extends StatelessWidget {
                                       child: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 13,
-                                        color: Colors.white,
+                                        color: Colors.black,
                                       )),
                                 ))
                           ],

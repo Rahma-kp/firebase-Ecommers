@@ -1,9 +1,8 @@
-import 'package:country_picker/country_picker.dart';
-import 'package:firebase_login/helpers/helpers.dart';
-import 'package:firebase_login/services/auth_service.dart';
+
+import 'package:ecommersapp/helpers/helpers.dart';
+import 'package:ecommersapp/services/auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+
 import 'package:lottie/lottie.dart';
 
 

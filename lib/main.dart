@@ -1,10 +1,9 @@
-
-import 'package:ecommersapp/controller/authentication.dart';
-import 'package:ecommersapp/controller/connectivity_provider.dart';
-import 'package:ecommersapp/controller/product_provider.dart';
-import 'package:ecommersapp/controller/widget_provider.dart';
+import 'package:ecommersapp/controller/bottombar_provider.dart';
+import 'package:ecommersapp/controller/category_provider.dart';
+import 'package:ecommersapp/controller/homepage_provider.dart';
+import 'package:ecommersapp/controller/wishlist_provider.dart';
 import 'package:ecommersapp/firebase_options.dart';
-import 'package:ecommersapp/view/welcome%20screens/welcome_page.dart';
+import 'package:ecommersapp/views/main_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,22 +24,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => AuthenticationProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => DatabaseProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => ConnectivityProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => WidgetProviders(),
-        ),
+             ChangeNotifierProvider(create: (context)=>BottomBarProvider()),
+        ChangeNotifierProvider(create: (context)=>Wishlist()),
+        ChangeNotifierProvider(create: (context)=>HomeProvider()),
+        ChangeNotifierProvider(create: (context)=>CategoryProvider()),
       ],
       child: MaterialApp(
         theme: ThemeData(
-          primaryColor: Color.fromARGB(182, 217, 101, 81),
+          primaryColor: const Color.fromARGB(182, 217, 101, 81),
           textTheme: TextTheme(
             titleLarge: GoogleFonts.montserrat(
               color: Colors.white,
@@ -57,12 +48,12 @@ class MyApp extends StatelessWidget {
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(182, 217, 101, 81),
+              backgroundColor: const Color.fromARGB(182, 217, 101, 81),
             ),
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: const Welcome(),
+        home: const MainPage(),
       ),
     );
   }

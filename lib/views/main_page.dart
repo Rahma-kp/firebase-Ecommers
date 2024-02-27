@@ -1,6 +1,6 @@
+import 'package:ecommersapp/views/authentication/auth_page.dart';
+import 'package:ecommersapp/widgets/bottombar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_login/views/auth_page.dart';
-import 'package:firebase_login/widgets/bottombar.dart';
 import 'package:flutter/material.dart';
 
 

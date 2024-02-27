@@ -1,15 +1,17 @@
-import 'package:firebase_login/controller/homepage_provider.dart';
-import 'package:firebase_login/controller/wishlist_provider.dart';
-import 'package:firebase_login/model/product_model.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/views/details.dart';
-import 'package:firebase_login/widgets/simmer_grid.dart';
+ 
+import 'package:ecommersapp/controller/homepage_provider.dart';
+import 'package:ecommersapp/controller/wishlist_provider.dart';
+import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/views/details.dart';
+import 'package:ecommersapp/widgets/simmer_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class FurnitureItems extends StatelessWidget {
   FurnitureItems({super.key});
 
@@ -64,8 +66,8 @@ class FurnitureItems extends StatelessWidget {
                             ],
                             color: Color.fromARGB(255, 29, 35, 46),
                             borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                                image: NetworkImage(product.image!, scale: 7))),
+                            image: DecorationImage(fit: BoxFit.cover,
+                                image: NetworkImage(product.image!, scale: 7,))),
                         child: Stack(
                           children: [
                             Positioned(
@@ -74,7 +76,7 @@ class FurnitureItems extends StatelessWidget {
                                 child: Text(
                                   product.category!,
                                   style: GoogleFonts.montserrat(
-                                      color: Colors.white, fontSize: 10),
+                                      color: Colors.black, fontSize: 15,),
                                 )),
                             Positioned(
                                 right: 10,
@@ -86,7 +88,7 @@ class FurnitureItems extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
-                                        image: AssetImage('assets/add-to-favorites.png'))
+                                        image: AssetImage('assets/images/favorite.png'))
                                     ),
                                   ),
                                   onTap: () {
@@ -101,7 +103,7 @@ class FurnitureItems extends StatelessWidget {
                                 children: [
                                   Text(
                                     product.title ?? 'No title',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.black),
                                   ),
                                   Text(
                                     '${product.price}',
@@ -117,13 +119,13 @@ class FurnitureItems extends StatelessWidget {
                                 bottom: 10,
                                 child: CircleAvatar(
                                   radius: 12,
-                                  backgroundColor: Colors.white.withOpacity(0.1),
+                                  backgroundColor: const Color.fromARGB(255, 72, 71, 71).withOpacity(0.1),
                                   child: InkWell(
                                       onTap: () {},
                                       child: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 13,
-                                        color: Colors.white,
+                                        color: Colors.black,
                                       )),
                                 ))
                           ],

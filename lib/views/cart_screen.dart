@@ -1,11 +1,10 @@
-import 'package:firebase_login/controller/wishlist_provider.dart';
-import 'package:firebase_login/helpers/helpers.dart';
-import 'package:firebase_login/model/product_model.dart';
-import 'package:firebase_login/services/auth_service.dart';
-import 'package:firebase_login/widgets/shimmer_list.dart';
+import 'package:ecommersapp/controller/wishlist_provider.dart';
+import 'package:ecommersapp/helpers/helpers.dart';
+import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/services/auth_service.dart';
+import 'package:ecommersapp/widgets/shimmer_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -17,13 +16,13 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final pro = Provider.of<Wishlist>(context);
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 24, 30, 41),
+        backgroundColor:Color.fromARGB(255, 194, 195, 196),
         appBar: AppBar(
           title: Text(
             'Cart',
             style: GoogleFonts.montserrat(color: Colors.white),
           ),
-          backgroundColor: Color.fromARGB(255, 24, 30, 41),
+          backgroundColor: Color.fromARGB(182, 217, 101, 81),
         ),
         body: FutureBuilder<List<ProductModel>>(
             future: pro.getWishlistItems(auth.auth.currentUser!.uid),
