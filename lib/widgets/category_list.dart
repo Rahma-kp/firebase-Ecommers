@@ -6,9 +6,9 @@ import 'package:ecommersapp/widgets/category_item_builder.dart';
 import 'package:ecommersapp/widgets/simmer_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class Categories extends StatelessWidget {
   Categories({Key? key});
 
@@ -30,7 +30,7 @@ class Categories extends StatelessWidget {
           return SliverFillRemaining(
             child: Text(
               snapshot.error.toString(),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black),
             ),
           );
         } else {
@@ -50,11 +50,11 @@ class Categories extends StatelessWidget {
                           GestureDetector(
                             child: CircleAvatar(
                               radius: 40,
-                              backgroundColor: Color.fromARGB(255, 29, 35, 46),
+                              backgroundColor: Colors.white,
                               backgroundImage: NetworkImage(category.image!,scale: 15),
                             ),
                           ),
-                          Text(category.category!,style: GoogleFonts.montserrat(color: Colors.white,fontSize: 10),)
+                          Text(category.category!,style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10),)
                         ],
                       ),
                       onTap: (){

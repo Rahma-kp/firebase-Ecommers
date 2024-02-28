@@ -92,7 +92,7 @@ class FurnitureItems extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: () {
-                                    pro.addProductToWishlist(product, auth.auth.currentUser!.uid);
+                                    // pro.addProductToWishlist(product, auth.auth.currentUser!.uid);
                                   },
                                 )),
                             Padding(
@@ -108,7 +108,7 @@ class FurnitureItems extends StatelessWidget {
                                   Text(
                                     '${product.price}',
                                     style: GoogleFonts.montserrat(
-                                        color: Color.fromARGB(255, 38, 184, 43),
+                                        color: Color.fromARGB(255, 38, 183, 42),
                                         fontSize: 16),
                                   ),
                                 ],

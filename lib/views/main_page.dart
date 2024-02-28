@@ -1,4 +1,5 @@
-import 'package:ecommersapp/views/authentication/auth_page.dart';
+
+import 'package:ecommersapp/views/authentication/login.dart';
 import 'package:ecommersapp/widgets/bottombar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,9 @@ class MainPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if(snapshot.hasData){
-            return BottomNavigation();
+            return BottomBarScreen();
           }else{
-            return AuthPage();
+            return LoginPage();
           }
         },
         )

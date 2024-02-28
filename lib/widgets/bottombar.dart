@@ -7,19 +7,19 @@ import 'package:ecommersapp/views/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({super.key});
+class BottomBarScreen extends StatefulWidget {
+  const BottomBarScreen({super.key});
 
   @override
-  State<BottomNavigation> createState() => _MyWidgetState();
+  State<BottomBarScreen> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<BottomNavigation> {
+class _MyWidgetState extends State<BottomBarScreen> {
   @override
     final List<Widget> _pages = [
     HomePage(),
     StorePage(),
-    CartPage(),
+    // CartPage(),
     Profile(),
   ];
 

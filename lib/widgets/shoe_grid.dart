@@ -24,7 +24,7 @@ class ShoeItems extends StatelessWidget {
       builder: (context, snapshot) {
         final data = snapshot.data;
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return SliverFillRemaining(
+          return const SliverFillRemaining(
             child: ShimmerLoader(),
           );
         } else if (snapshot.hasError) {
@@ -32,16 +32,16 @@ class ShoeItems extends StatelessWidget {
           return SliverFillRemaining(
             child: Text(
               snapshot.error.toString(),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           );
         } else if (snapshot.data == null) {
-          return SliverFillRemaining(
+          return const SliverFillRemaining(
             child: CircularProgressIndicator(),
           );
         } else {
           return SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 8.0,
               mainAxisSpacing: 8.0,
@@ -58,14 +58,14 @@ class ShoeItems extends StatelessWidget {
                         decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                  offset: Offset(3, 4),
+                                  offset: const Offset(3, 4),
                                   blurRadius: 2.5,
                                   color: Colors.black.withOpacity(0.2)),
                             ],
-                            color: Color.fromARGB(255, 247, 245, 245),
+                            color: const Color.fromARGB(255, 247, 245, 245),
                             borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                                image: NetworkImage(product.image!, scale: 7))),
+                            image: DecorationImage( fit: BoxFit.cover,
+                                image: NetworkImage(product.image!, scale: 7,))),
                         child: Stack(
                           children: [
                             Positioned(
@@ -83,14 +83,14 @@ class ShoeItems extends StatelessWidget {
                                   child: Container(
                                     height: 20,
                                     width: 20,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
-                                        image: AssetImage('assets/add-to-favorites.png'))
+                                        image: AssetImage('assets/images/favorite.png'))
                                     ),
                                   ),
                                   onTap: () {
-                                    wishlistpro.addProductToWishlist(product, auth.auth.currentUser!.uid);
+                                    // wishlistpro.addProductToWishlist(product, auth.auth.currentUser!.uid);
                                   },
                                 )),
                             Padding(
@@ -101,12 +101,12 @@ class ShoeItems extends StatelessWidget {
                                 children: [
                                   Text(
                                     product.title ?? 'No title',
-                                    style: TextStyle(color: Colors.black),
+                                    style: const TextStyle(color: Colors.black,fontSize: 15),
                                   ),
                                   Text(
                                     '${product.price}',
                                     style: GoogleFonts.montserrat(
-                                        color: Color.fromARGB(255, 38, 184, 43),
+                                        color: const Color.fromARGB(255, 38, 184, 43),
                                         fontSize: 16),
                                   ),
                                 ],
@@ -117,10 +117,10 @@ class ShoeItems extends StatelessWidget {
                                 bottom: 10,
                                 child: CircleAvatar(
                                   radius: 12,
-                                  backgroundColor: Colors.white.withOpacity(0.1),
+                                  backgroundColor: const Color.fromARGB(255, 108, 106, 106).withOpacity(0.1),
                                   child: InkWell(
                                       onTap: () {},
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.arrow_forward_ios,
                                         size: 13,
                                         color: Colors.black,

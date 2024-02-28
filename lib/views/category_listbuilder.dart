@@ -68,11 +68,11 @@ class CategoryListBuilder extends StatelessWidget {
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: AssetImage('assets/add-to-favorites.png'))
+                                          image: AssetImage('assets/images/favorite.png'))
                                       ),
                                     ),
                                     onTap: () {
-                                      wishlistpro.addProductToWishlist(product, auth.auth.currentUser!.uid);
+                                      // wishlistpro.addProductToWishlist(product, auth.auth.currentUser!.uid);
                                     },
                                   )),
                               Padding(

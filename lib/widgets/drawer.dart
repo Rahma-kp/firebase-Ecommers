@@ -25,16 +25,16 @@ class drawerPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      auth.auth.currentUser!.displayName??'',
-                      style: GoogleFonts.montserrat(color: Colors.black,
-                        fontSize: 40,)
-                    ),
-                    Text(
-                      auth.auth.currentUser!.email??'',
-                      style: GoogleFonts.montserrat(color: Colors.black,
-                        fontSize: 20,)
-                    ),
+                    // Text(
+                    //   auth.auth.currentUser!.displayName??'',
+                    //   style: GoogleFonts.montserrat(color: Colors.black,
+                    //     fontSize: 40,)
+                    // ),
+                    // Text(
+                    //   auth.auth.currentUser!.email??'',
+                    //   style: GoogleFonts.montserrat(color: Colors.black,
+                    //     fontSize: 20,)
+                    // ),
                   ],
                 ),
               ),
@@ -52,7 +52,7 @@ class drawerPage extends StatelessWidget {
                   backgroundColor:  Colors.white,
                  actions: [
                     TextButton(onPressed: () {
-                    AuthService().signOut();
+                    AuthService().signOutWithEmail();
                     Navigator.pop(context);
                     }, child: Text('Yes')),
                     TextButton(onPressed: () {

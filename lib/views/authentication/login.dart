@@ -1,156 +1,118 @@
 
-import 'package:ecommersapp/helpers/custom_container.dart';
-import 'package:ecommersapp/helpers/helpers.dart';
-import 'package:ecommersapp/services/auth_service.dart';
-import 'package:ecommersapp/views/authentication/phoneauth.dart';
+import 'package:ecommersapp/controller/auth_provider.dart';
+import 'package:ecommersapp/views/authentication/signup_screen.dart';
+import 'package:ecommersapp/widgets/autpage_widget.dart';
+import 'package:ecommersapp/widgets/bottombar.dart';
+import 'package:ecommersapp/widgets/button_widgets.dart';
+import 'package:ecommersapp/widgets/navigator.dart';
+import 'package:ecommersapp/widgets/popup_widget.dart';
+import 'package:ecommersapp/widgets/style_widgets.dart';
+import 'package:ecommersapp/widgets/text_fields_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
-
-// ignore: must_be_immutable
-class LoginPage extends StatefulWidget {
-  VoidCallback showRegisterPage;
-   LoginPage({super.key,required this.showRegisterPage});
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  TextEditingController emailController=TextEditingController();
-  TextEditingController passwordController=TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    var height=MediaQuery.of(context).size.height;
-    var width=MediaQuery.of(context).size.width;
+    Size size = MediaQuery.of(context).size;
+    final getProvider =
+        Provider.of<AuthenticationProvider>(context, listen: false);
+
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          ClipPath(
-            clipper: WaveClipper(),
-            child: Container(
-              height: height*1.5,
-              width: double.infinity,
-              color: Color.fromARGB(255, 33, 41, 56)
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  spacingHeight(130),
-                  const Center(child: Icon(Iconsax.security_safe,color: Colors.black,size: 60,)),
-                  spacingHeight(10),
-                  Text('Welcome',style: GoogleFonts.ubuntu(color: Colors.black,fontSize: 30,fontWeight: FontWeight.w500),),
-                  Text('Please enter your e-mail and password to Login',style: GoogleFonts.montserrat(color: Color.fromARGB(255, 35, 35, 35),fontSize: 12),),
-                  spacingHeight(20),
-                  textFormField(controller: emailController,text: 'Email'),
-                  spacingHeight(30),
-                  textFormField(controller: passwordController,text: 'Password'),
-                  spacingHeight(15),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text('Forgot password?',style: GoogleFonts.montserrat(color: Color.fromARGB(255, 35, 35, 35),fontSize: 12),)),
-                  spacingHeight(15),
-                  InkWell(
-                    child: Container(
-                      width: double.infinity,
-                      height: height*0.07,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
-                      gradient:loginGradient()
-                      ),
-                      child: Center(child: Text('Login',style: GoogleFonts.workSans(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500),)),
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      // ),
+      body: Form(
+        key: formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: size.height * .05,
+                ),
+                Text(
+                  "Hello!",
+                  style: TextStyle(fontSize: size.width * .12),
+                ),
+                Text(
+                  "WELCOME BACK",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: size.width * .07),
+                ),
+                SizedBox(
+                  height: size.width * .1,
+                ),
+                Card(
+                  surfaceTintColor: Colors.white,
+                  color: Colors.white,
+                  elevation: size.width * .05,
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(size.width * .04))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        TextFieldWidgets().textFormField(size,
+                            label: 'Email',
+                            controller: getProvider.emailController),
+                        TextFieldWidgets().textFormField(size,
+                            label: 'Password',
+                            type: "Password",
+                            controller: getProvider.passwordController),
+                        SizedBox(
+                          height: size.width * .1,
+                        ),
+                        ButtonWidgets().fullWidthElevatedButton(
+                          size,
+                          label: 'Log in',
+                          onPressed: () async {
+                            if (formKey.currentState!.validate()) {
+                              try {
+                                await getProvider.signInWithEmail(
+                                    getProvider.emailController.text,
+                                    getProvider.passwordController.text);
+                                PopupWidgets().showSuccessSnackbar(
+                                    context, 'user logid in');
+                                NavigatorWidget().pushReplacement(
+                                    context, BottomBarScreen());
+                              } catch (e) {
+                                PopupWidgets().showErrorSnackbar(
+                                    context, 'User not found!');
+                              }
+                            }
+                          },
+                        ),
+                        SizedBox(
+                          height: size.width * .05,
+                        ),
+                        StyleWidgets().lineDivider(text: 'or'),
+                        AuthPagesWidget().loginIcons(context),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('Create a account?'),
+                            ButtonWidgets().textButtonWidget(size, context,
+                                label: 'SIGN UP', onPressed: () async {
+                              await getProvider.clearControllers();
+                              NavigatorWidget().push(context, SignUpPage());
+                            }),
+                          ],
+                        )
+                      ],
                     ),
-                    onTap: () => AuthService().signInWithEmail(emailController.text.trim(), passwordController.text.trim(),context)
                   ),
-                  spacingHeight(20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Do you Have an Account?',style: GoogleFonts.workSans(color: Colors.grey,fontSize: 10,fontWeight: FontWeight.w500),),
-                      spacingWidth(10),
-                      InkWell(
-                        onTap:  () => widget.showRegisterPage(),
-                        child: Text('Sign Up',style: GoogleFonts.workSans(color: Colors.blue,fontSize: 13,fontWeight: FontWeight.w500),)),
-                    ],
-                  ),
-                  Text('Or Sign in with',style: GoogleFonts.workSans(color: Color.fromARGB(255, 167, 166, 166),fontSize: 10,fontWeight: FontWeight.w500),),
-                  spacingHeight(10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () => AuthService().singinWithGoogle(),
-                        child: Container(
-                          height: height*0.09,
-                          width:width*0.20 ,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(18.0),
-                            child: Image.asset('assets/icons/google.png',),
-                          ),
-                        ),
-                      ),
-                      spacingWidth(25),
-                      GestureDetector(
-                        child: Container(
-                          height: height*0.09,
-                          width:width*0.20 ,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(19.0),
-                            child: Image.asset('assets/icons/github.png',height: height*0.04,),
-                          ),
-                        ),
-                        onTap: () {
-                          AuthService().signInWithGithub(context);
-                        },
-                      ),
-                      spacingWidth(25),
-                       GestureDetector(
-                        child: Container(
-                          height: height*0.09,
-                          width:width*0.20 ,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Image.asset('assets/icons/phone.png',),
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PhoneAuthPage()));
-                        },
-                      ),
-                    ],
-                  ),
-                 
-                ],
-              ),
+                )
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
-
-} 
+}

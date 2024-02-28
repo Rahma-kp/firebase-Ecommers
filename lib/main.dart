@@ -1,3 +1,4 @@
+import 'package:ecommersapp/controller/auth_provider.dart';
 import 'package:ecommersapp/controller/bottombar_provider.dart';
 import 'package:ecommersapp/controller/category_provider.dart';
 import 'package:ecommersapp/controller/homepage_provider.dart';
@@ -11,7 +12,11 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: FirebaseOptions( apiKey: 'AIzaSyCrtPWBTcn4YCyyWnm9UJqS049nwFfkakY',
+    appId: '1:794363327586:android:e35c9bfd84cb7b655d8d3b',
+    messagingSenderId: '794363327586',
+    projectId: 'ecommerce-71f44',
+    storageBucket: 'ecommerce-71f44.appspot.com',));
   runApp(const MyApp());
 }
 
@@ -28,6 +33,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context)=>Wishlist()),
         ChangeNotifierProvider(create: (context)=>HomeProvider()),
         ChangeNotifierProvider(create: (context)=>CategoryProvider()),
+        ChangeNotifierProvider(create: (context) => AuthenticationProvider(),)
       ],
       child: MaterialApp(
         theme: ThemeData(

@@ -18,10 +18,10 @@ class CategoryItems extends StatelessWidget {
     final catPro = Provider.of<CategoryProvider>(context);
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 24, 30, 41),
+      backgroundColor: Color.fromARGB(255, 194, 195, 196),
       appBar: AppBar(
         foregroundColor: Colors.white,
-        backgroundColor: Color.fromARGB(255, 24, 30, 41),
+        backgroundColor:Color.fromARGB(182, 217, 101, 81),
       ),
       body: buildCategoryWidget(catPro),
     );
@@ -31,63 +31,63 @@ class CategoryItems extends StatelessWidget {
     switch (category.id) {
       case "1":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'creams', typeofcategory: 'creamcategory'),
+          future: catPro.getCategoryItems(type: 'heels', typeofcategory: 'heelscategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "2":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'furniture', typeofcategory: 'funiturecategory'),
+          future: catPro.getCategoryItems(type: 'chappal', typeofcategory: 'chappalcategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "3":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'gym', typeofcategory: 'gymcategory'),
+          future: catPro.getCategoryItems(type: 'kids', typeofcategory: 'kidscategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "4":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'jzczwVUcDfm3TqqzeQpJ', typeofcategory: 'shirtcategory'),
+          future: catPro.getCategoryItems(type: 'formal', typeofcategory: 'formlcategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "5":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'ladiesdress', typeofcategory: 'ladiesitem1'),
+          future: catPro.getCategoryItems(type: 'slipper', typeofcategory: 'slippercategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "6":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'laptops', typeofcategory: 'laptopCategory'),
+          future: catPro.getCategoryItems(type: 'sports', typeofcategory: 'sportsCategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "7":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'shoes', typeofcategory: 'shoecategory'),
+          future: catPro.getCategoryItems(type: 'boots', typeofcategory: 'shoecategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "8":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'sports', typeofcategory: 'sportscategory'),
+          future: catPro.getCategoryItems(type: 'sandels', typeofcategory: 'sandelscategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "9":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'tshirts', typeofcategory: 'tshirtscategory'),
+          future: catPro.getCategoryItems(type: 'sneakers', typeofcategory: 'sneakerscategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },

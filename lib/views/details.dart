@@ -15,9 +15,9 @@ class DetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 24, 30, 41),
+        backgroundColor: Color.fromARGB(182, 217, 101, 81),
       ),
-      backgroundColor: Color.fromARGB(255, 24, 30, 41),
+      backgroundColor: Color.fromARGB(255, 194, 195, 196),
       body: Stack(
         children: [
           Padding(
@@ -38,10 +38,10 @@ class DetailsPage extends StatelessWidget {
                               color: Colors.black.withOpacity(0.2)),
                         ],
                         borderRadius: BorderRadius.circular(20),
-                        color: Color.fromARGB(255, 27, 34, 46),
+                        color: Colors.white,
                         image: DecorationImage(
                             image: NetworkImage(product.image!),
-                            fit: BoxFit.scaleDown),
+                            fit: BoxFit.contain),
                       ),
                     ),
                     Positioned(
@@ -52,8 +52,8 @@ class DetailsPage extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         child: CircleAvatar(
-                          backgroundColor: Colors.white.withOpacity(0.2),
-                          child: Icon(Icons.arrow_left,color: Colors.white.withOpacity(0.5),),
+                          backgroundColor: const Color.fromARGB(255, 108, 107, 107).withOpacity(0.2),
+                          child: Icon(Icons.arrow_left,color: Colors.black.withOpacity(0.5),),
                         ),
                       )),
                       Positioned(
@@ -90,7 +90,7 @@ class DetailsPage extends StatelessWidget {
                 Text(
                   product.title!,
                   style: GoogleFonts.montserrat(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.w500),
                 ),
@@ -98,7 +98,7 @@ class DetailsPage extends StatelessWidget {
                 Text(
                   product.category!,
                   style: GoogleFonts.montserrat(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 14,
                       fontWeight: FontWeight.w500),
                 ),
@@ -106,7 +106,7 @@ class DetailsPage extends StatelessWidget {
                 Text(
                   '${product.price} /-',
                   style: GoogleFonts.montserrat(
-                      color: Colors.amber,
+                      color: Colors.black,
                       fontSize: 25,
                       fontWeight: FontWeight.w500),
                 ),
@@ -114,7 +114,7 @@ class DetailsPage extends StatelessWidget {
                 Text(
                   product.description!,
                   style: GoogleFonts.montserrat(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 15,
                       fontWeight: FontWeight.w500),
                 ),
@@ -127,7 +127,7 @@ class DetailsPage extends StatelessWidget {
             right: 0,
             child: Container(
               height: 80,
-              color:Color.fromARGB(255, 27, 34, 46),
+              color:Color.fromARGB(255, 143, 144, 145),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Row(
@@ -136,11 +136,10 @@ class DetailsPage extends StatelessWidget {
                     Row(
                       children: [
                         Text('Get Product',style: GoogleFonts.montserrat(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.w500),),
-                        spacingWidth(10),
-                        Icon(Icons.arrow_right_outlined,color: Colors.green,)
+                        Icon(Icons.arrow_right_outlined,color: Colors.green,size:50,)
                       ],
                     ),
                     Container(
@@ -148,7 +147,7 @@ class DetailsPage extends StatelessWidget {
                       width: 170,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Colors.amber,
+                        color: Color.fromARGB(182, 217, 101, 81),
                       ),
                       child: Center(
                         child: Text('Buy Now',style: GoogleFonts.montserrat(
