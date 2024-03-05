@@ -3,7 +3,6 @@ import 'package:ecommersapp/controller/bottombar_provider.dart';
 import 'package:ecommersapp/controller/category_provider.dart';
 import 'package:ecommersapp/controller/homepage_provider.dart';
 import 'package:ecommersapp/controller/wishlist_provider.dart';
-import 'package:ecommersapp/firebase_options.dart';
 import 'package:ecommersapp/views/main_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: FirebaseOptions( apiKey: 'AIzaSyCrtPWBTcn4YCyyWnm9UJqS049nwFfkakY',
+  await Firebase.initializeApp(options: const FirebaseOptions( apiKey: 'AIzaSyCrtPWBTcn4YCyyWnm9UJqS049nwFfkakY',
     appId: '1:794363327586:android:e35c9bfd84cb7b655d8d3b',
     messagingSenderId: '794363327586',
     projectId: 'ecommerce-71f44',

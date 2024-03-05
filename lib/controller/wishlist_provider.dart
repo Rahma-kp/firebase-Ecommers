@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommersapp/model/product_model.dart';
 import 'package:ecommersapp/services/firebase_service.dart';
-
 import 'package:flutter/foundation.dart';
 
 

@@ -48,11 +48,6 @@ class TextWidgets {
           fontSize: MediaQuery.of(context).size.width * 0.05,
           fontWeight: FontWeight.bold,
         ),
-        // style: TextStyle(
-        //   color: color ?? Colors.black,
-        //   fontSize: MediaQuery.of(context).size.width * 0.06,
-        //   fontWeight: FontWeight.bold,
-        // ),
       ),
     );
   }

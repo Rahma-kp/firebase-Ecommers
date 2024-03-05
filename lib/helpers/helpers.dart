@@ -10,13 +10,13 @@ SizedBox spacingWidth(double width) => SizedBox(
 TextFormField textFormField({TextEditingController? controller, String? text}) {
   return TextFormField(
     controller: controller!,
-    style: TextStyle(color: Colors.white),
+    style: const TextStyle(color: Colors.white),
     decoration: InputDecoration(
       hintText: text!,
-      hintStyle: TextStyle(color: Color.fromARGB(255, 134, 133, 133)),
+      hintStyle: const TextStyle(color: Color.fromARGB(255, 134, 133, 133)),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
           
         )
@@ -28,7 +28,7 @@ TextFormField textFormField({TextEditingController? controller, String? text}) {
 }
 
 LinearGradient loginGradient() {
-  return LinearGradient(
+  return const LinearGradient(
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
       colors: [
@@ -38,8 +38,8 @@ LinearGradient loginGradient() {
 }
 
 LinearGradient signupGradient() {
-  return LinearGradient(colors: [
-    const Color.fromARGB(255, 33, 79, 243),
+  return const LinearGradient(colors: [
+    Color.fromARGB(255, 33, 79, 243),
     Color.fromARGB(255, 111, 184, 244),
   ]);
 }

@@ -10,16 +10,16 @@ class StorePage extends StatelessWidget {
   @override
    Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 194, 195, 196),
+      backgroundColor: const Color.fromARGB(255, 194, 195, 196),
       appBar: AppBar(
-        backgroundColor:  Color.fromARGB(182, 217, 101, 81),
+        backgroundColor:  const Color.fromARGB(182, 217, 101, 81),
         title: Text('Your Store',style: GoogleFonts.montserrat(
                           fontWeight: FontWeight.w500,
                           color: Colors.white)),
       ),
       body: CustomScrollView(
         slivers: [
-          SliverPadding(
+          const SliverPadding(
             padding: EdgeInsets.symmetric(vertical: 10.0),
           ),
           SliverToBoxAdapter(
@@ -28,11 +28,11 @@ class StorePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Furniture',
+                  Text('collection',
                       style: GoogleFonts.montserrat(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white)),
+                          color: Colors.black)),
                 ],
               ),
             ),
@@ -41,11 +41,11 @@ class StorePage extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
-              child: Text('Sports',
+              child: Text('New collections',
                       style: GoogleFonts.montserrat(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white)),
+                          color: Colors.black)),
             ),
           ),
           

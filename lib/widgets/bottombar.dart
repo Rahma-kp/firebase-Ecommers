@@ -1,9 +1,9 @@
 
 import 'package:ecommersapp/controller/bottombar_provider.dart';
+import 'package:ecommersapp/views/wishlist_screen.dart';
 import 'package:ecommersapp/views/home_screen.dart';
 import 'package:ecommersapp/views/profile_screen.dart';
 import 'package:ecommersapp/views/store_screen.dart';
-import 'package:ecommersapp/views/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,11 +15,10 @@ class BottomBarScreen extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<BottomBarScreen> {
-  @override
-    final List<Widget> _pages = [
+  final List<Widget> _pages = [
     HomePage(),
     StorePage(),
-    // CartPage(),
+    CartScreen(),
     Profile(),
   ];
 
@@ -40,23 +39,23 @@ class _MyWidgetState extends State<BottomBarScreen> {
             NavigationDestination(
               icon: Icon(Icons.home,
                   color:  bottomProvider.currentIndex == 0 ?Colors.white : Colors.black),
-              label: 'Home',
+              label:'Home',
             ),
             NavigationDestination(
               icon: Icon(Icons.shop,
                   color:  bottomProvider.currentIndex == 1 ? Colors.white : Colors.black),
-              label: 'Store',
+              label:'Store',
               
             ),
             NavigationDestination(
-              icon: Icon(Icons.shopping_cart,
+              icon: Icon(Icons.favorite_border_outlined,
                   color:  bottomProvider.currentIndex == 2 ?Colors.white : Colors.black),
-              label: 'Cart',
+              label:'WishList',
             ),
             NavigationDestination(
               icon: Icon(Icons.person,
                   color:  bottomProvider.currentIndex == 3 ?Colors.white : Colors.black),
-              label: 'User',
+              label:'User',
       
             ),
           ],

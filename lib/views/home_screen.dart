@@ -2,13 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommersapp/controller/homepage_provider.dart';
 import 'package:ecommersapp/helpers/helpers.dart';
 import 'package:ecommersapp/services/auth_service.dart';
-import 'package:ecommersapp/widgets/drawer.dart';
 import 'package:ecommersapp/widgets/category_list.dart';
 import 'package:ecommersapp/widgets/furniture_grid.dart';
 import 'package:ecommersapp/widgets/shoe_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +22,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     Provider.of<HomeProvider>(context, listen: false).getCurrentUser();
   }
-
   final List<String> images = [
     "assets/images/offer 1.jpg",
     "assets/images/offer 2.jpg",
@@ -33,29 +30,19 @@ class _HomePageState extends State<HomePage> {
     "assets/images/offer 5.jpeg",
     "assets/images/offfer 6.jpeg",
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 194, 195, 196),
+      backgroundColor: const Color.fromARGB(255, 194, 195, 196),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(182, 217, 101, 81),
-        title: Row(
-          children: [
-            Text('Hello..',
-                style: GoogleFonts.montserrat(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white)),
-            Text(Provider.of<HomeProvider>(context).currentusername,
-                style: GoogleFonts.montserrat(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white)),
-          ],
-        ),
+        backgroundColor: const Color.fromARGB(182, 217, 101, 81),
+        title: Text('fashion',
+            style: GoogleFonts.aclonica(
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+                color: Colors.white)),
+                centerTitle: true,
       ),
-      endDrawer: drawerPage(),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -70,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
                               color: const Color.fromARGB(255, 0, 0, 0))),
-                      Icon(
+                      const Icon(
                         Icons.arrow_right,
                         color: Colors.green,
                       ),
@@ -94,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 aspectRatio: 16 / 9,
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 viewportFraction: 0.8,
               ),
               items: images.map((String imageUrl) {
@@ -108,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Color.fromARGB(255, 29, 35, 46),
+                              color: const Color.fromARGB(255, 29, 35, 46),
                               image: DecorationImage(
                                   fit: BoxFit.fill,
                                   image: AssetImage(imageUrl))),
@@ -120,7 +107,7 @@ class _HomePageState extends State<HomePage> {
               }).toList(),
             ),
           ),
-          SliverPadding(
+          const SliverPadding(
             padding: EdgeInsets.symmetric(vertical: 10.0),
           ),
           Categories(),
@@ -145,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.black)),
                     ],
                   ),
-                  Text('Sports',
+                  Text('collection',
                       style: GoogleFonts.montserrat(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

@@ -31,7 +31,6 @@ class DatabaseService1 {
 class DatabaseService2 {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   late final CollectionReference<CategoryModel> catref;
-
   DatabaseService2() {
     catref = firestore.collection("category").withConverter<CategoryModel>(
           fromFirestore: (snapshot, snapshotOptions) =>

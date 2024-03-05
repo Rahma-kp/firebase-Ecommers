@@ -7,7 +7,6 @@ import 'package:ecommersapp/views/details.dart';
 import 'package:ecommersapp/widgets/simmer_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:provider/provider.dart';
 
 class ShoeItems extends StatelessWidget {
@@ -90,7 +89,7 @@ class ShoeItems extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: () {
-                                    // wishlistpro.addProductToWishlist(product, auth.auth.currentUser!.uid);
+                                    wishlistpro.addProductToWishlist(product, auth.firebaseAuth.currentUser!.uid);
                                   },
                                 )),
                             Padding(

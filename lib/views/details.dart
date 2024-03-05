@@ -1,23 +1,29 @@
 
+import 'package:ecommersapp/controller/wishlist_provider.dart';
 import 'package:ecommersapp/helpers/helpers.dart';
 import 'package:ecommersapp/model/product_model.dart';
+import 'package:ecommersapp/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 
 
 class DetailsPage extends StatelessWidget {
   final ProductModel product;
   DetailsPage({Key? key, required this.product}) : super(key: key);
-
+  
+ AuthService auth = AuthService();
   @override
   Widget build(BuildContext context) {
+    final pro=Provider.of<Wishlist>(context,listen: false);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(182, 217, 101, 81),
+        backgroundColor: const Color.fromARGB(182, 217, 101, 81),
       ),
-      backgroundColor: Color.fromARGB(255, 194, 195, 196),
+      backgroundColor: const Color.fromARGB(255, 194, 195, 196),
       body: Stack(
         children: [
           Padding(
@@ -33,7 +39,7 @@ class DetailsPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                              offset: Offset(4, 4),
+                              offset: const Offset(4, 4),
                               blurRadius: 2.5,
                               color: Colors.black.withOpacity(0.2)),
                         ],
@@ -64,11 +70,11 @@ class DetailsPage extends StatelessWidget {
                           height: 20,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                              const Color.fromARGB(255, 26, 210, 32),
+                              Color.fromARGB(255, 26, 210, 32),
                               Color.fromARGB(255, 117, 242, 121)
                             ])
                           ),
@@ -78,7 +84,7 @@ class DetailsPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text('${product.rating!}',style: GoogleFonts.montserrat(color: Colors.white,fontWeight: FontWeight.w600),),
-                                Icon(Icons.star,color: Colors.white,size: 15,)
+                                const Icon(Icons.star,color: Colors.white,size: 15,)
                               ],
                             ),
                           ),
@@ -127,27 +133,27 @@ class DetailsPage extends StatelessWidget {
             right: 0,
             child: Container(
               height: 80,
-              color:Color.fromARGB(255, 143, 144, 145),
+              color:const Color.fromARGB(255, 143, 144, 145),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Text('Get Product',style: GoogleFonts.montserrat(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500),),
-                        Icon(Icons.arrow_right_outlined,color: Colors.green,size:50,)
-                      ],
+                    
+                    InkWell(onTap: () {
+                       pro.addProductToWishlist(product,auth.firebaseAuth.currentUser!.uid );
+                    },
+                      child: Text('Add to whislist',style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),),
                     ),
                     Container(
                       height: 60,
                       width: 170,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Color.fromARGB(182, 217, 101, 81),
+                        color: const Color.fromARGB(182, 217, 101, 81),
                       ),
                       child: Center(
                         child: Text('Buy Now',style: GoogleFonts.montserrat(
@@ -156,7 +162,6 @@ class DetailsPage extends StatelessWidget {
                           fontWeight: FontWeight.w500)),
                       ),
                     ),
-                    
                   ],
                 ),
               ),

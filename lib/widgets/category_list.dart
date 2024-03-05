@@ -49,7 +49,7 @@ class Categories extends StatelessWidget {
                         children: [
                           GestureDetector(
                             child: CircleAvatar(
-                              radius: 40,
+                              radius: 45,
                               backgroundColor: Colors.white,
                               backgroundImage: NetworkImage(category.image!,scale: 15),
                             ),

@@ -5,23 +5,20 @@ import 'package:ecommersapp/model/product_model.dart';
 import 'package:ecommersapp/views/category_listbuilder.dart';
 import 'package:ecommersapp/widgets/simmer_grid.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 class CategoryItems extends StatelessWidget {
   CategoryModel category;
-
-  CategoryItems({Key? key, required this.category});
+  CategoryItems({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
     final catPro = Provider.of<CategoryProvider>(context);
-
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 194, 195, 196),
+      backgroundColor: const Color.fromARGB(255, 194, 195, 196),
       appBar: AppBar(
         foregroundColor: Colors.white,
-        backgroundColor:Color.fromARGB(182, 217, 101, 81),
+        backgroundColor:const Color.fromARGB(182, 217, 101, 81),
       ),
       body: buildCategoryWidget(catPro),
     );
@@ -31,69 +28,55 @@ class CategoryItems extends StatelessWidget {
     switch (category.id) {
       case "1":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'heels', typeofcategory: 'heelscategory'),
+          future: catPro.getCategoryItems(type: 'chappal', typeofcategory: 'chappalcategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "2":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'chappal', typeofcategory: 'chappalcategory'),
+          future: catPro.getCategoryItems(type: 'shoes', typeofcategory: 'shoescategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "3":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'kids', typeofcategory: 'kidscategory'),
+          future: catPro.getCategoryItems(type: 'accessories', typeofcategory: 'accessoriescategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "4":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'formal', typeofcategory: 'formlcategory'),
+          future: catPro.getCategoryItems(type: 'skincare', typeofcategory: 'skincarecategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "5":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'slipper', typeofcategory: 'slippercategory'),
+          future: catPro.getCategoryItems(type: 'dress', typeofcategory: 'dresscategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "6":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'sports', typeofcategory: 'sportsCategory'),
+          future: catPro.getCategoryItems(type: 'makeup', typeofcategory: 'makeupcategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       case "7":
         return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'boots', typeofcategory: 'shoecategory'),
-          builder: (context, snapshot) {
-            return buildContent(snapshot, catPro);
-          },
-        );
-      case "8":
-        return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'sandels', typeofcategory: 'sandelscategory'),
-          builder: (context, snapshot) {
-            return buildContent(snapshot, catPro);
-          },
-        );
-      case "9":
-        return FutureBuilder<List<ProductModel>>(
-          future: catPro.getCategoryItems(type: 'sneakers', typeofcategory: 'sneakerscategory'),
+          future: catPro.getCategoryItems(type: 'bags', typeofcategory: 'bagscategory'),
           builder: (context, snapshot) {
             return buildContent(snapshot, catPro);
           },
         );
       default:
-        return Container();
+        return Container(child: const Text("error"),);
     }
   }
 
